@@ -10,8 +10,6 @@ import java.util.function.Supplier;
 
 @SpringBootApplication
 public class KafkaProducerApplication {
-    private Random rand = new Random();
-
     public static void main(String[] args) {
        ConfigurableApplicationContext context = SpringApplication.run(KafkaProducerApplication.class, args);
         try {
@@ -21,11 +19,6 @@ public class KafkaProducerApplication {
         } finally {
             context.close();
         }
-    }
-
-    @Bean
-    public Supplier<String> sendData() {
-        return () -> "message# " + rand.nextInt(10) + " : " + System.currentTimeMillis();
     }
 
 }
