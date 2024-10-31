@@ -14,7 +14,7 @@ public class PulseDataProducer {
     @Bean
     public Supplier<PulseDto> sendData() {
         return () -> PulseDto.builder()
-                .id((int) (System.currentTimeMillis()%100000) + random.nextInt(10000))
+                .id(random.nextInt(100))
                 .timestamp(System.currentTimeMillis())
                 .payload(random.nextInt(200))
                 .build();
